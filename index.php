@@ -30,6 +30,7 @@
 	<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 	<![endif]-->
 	<script type="text/javascript" src="http://maps.google.com/maps/api/js?key=AIzaSyBlOxsFrd1V_q-Bc8kPCiswH9myVuaH0N4"></script>
+	<script type="text/javascript" src="assets/js/main.js"></script>
 </head>
 <body>
 <header id="header" class="header">
@@ -51,7 +52,7 @@
 	<script type="text/javascript"> 
 	function init_map(){
 		var myOptions = {
-			zoom 		: 	15,
+			zoom 		: 	16,
 			center		: 	new google.maps.LatLng(19.513056818661333,-101.6093156524658), 
 			mapTypeId 	: 	google.maps.MapTypeId.ROADMAP
 		};
@@ -88,9 +89,11 @@
 
 <section class="form" id="form">
 	<div class="container">
-		<form>
+		<form id="nuevoLugar" method="post">
 			<p>Latitud: <input type="text" name="latitud" id="inputLat" value=""></p>
 			<p>Longitud: <input type="text" name="longitud" id="inputLen" value=""></p>
+
+			<input type="button" name="enviar" value="Guardar" id="botonGuardar">
 		</form>
 	</div>
 </section>
