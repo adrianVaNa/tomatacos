@@ -98,22 +98,6 @@
 	</div>
 </section>
 
-<!-- begin download section -->
-<section class="download" id="download">
-	<div class="container">
-		<div class="row left">
-			<a href="#" class="btn btn-download" >
-				For businnes try it now
-			</a>
-		</div>
-		<div class="row right">
-			<a href="#" class="btn btn-download" >					
-				For individual downolad app
-			</a>
-		</div>
-	</div>
-</section>
-<!-- end download section -->
 
 <!-- begin footer section -->
 <footer class="footer" id="footer">

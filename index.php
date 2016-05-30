@@ -111,7 +111,8 @@
 						map 		:  	map,
 						position 	: 	new google.maps.LatLng(parseFloat(this['coord_lat']), parseFloat(this['coord_lon'])),
 						animation 	: 	google.maps.Animation.DROP,
-						infowindow 	: 	infowindow
+						infowindow 	: 	infowindow,
+						icon 		:  	'assets/img/taco.png'
 					});	
 					
 					//En cada punto de interés se crea el evento de abrir la información
@@ -135,31 +136,10 @@
 
 <section class="form" id="form">
 	<div class="container">
-		<form id="nuevoLugar" method="post">
-			<p>Latitud: <input type="text" name="latitud" id="inputLat" value=""></p>
-			<p>Longitud: <input type="text" name="longitud" id="inputLen" value=""></p>
-
-			<input type="button" name="enviar" value="Guardar" id="botonGuardar">
-		</form>
+		<a href="nuevo_punto.php">Registrar nueva taquería</a>
 	</div>
 </section>
 
-<!-- begin download section -->
-<section class="download" id="download">
-	<div class="container">
-		<div class="row left">
-			<a href="#" class="btn btn-download" >
-				For businnes try it now
-			</a>
-		</div>
-		<div class="row right">
-			<a href="#" class="btn btn-download" >					
-				For individual downolad app
-			</a>
-		</div>
-	</div>
-</section>
-<!-- end download section -->
 
 <!-- begin footer section -->
 <footer class="footer" id="footer">
