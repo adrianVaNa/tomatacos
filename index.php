@@ -59,27 +59,41 @@
 
 		map  = new google.maps.Map(document.getElementById("gmap_canvas"), myOptions);
 
-		marker = new google.maps.Marker({
-			map 		:  	map,
-			position 	: 	new google.maps.LatLng(19.513056818661333, -101.6093156524658)
-		});	
-		infowindow = new google.maps.InfoWindow({
-			content 	: 	"<b>Plaza grande</b><br/>Patzcuaro<br/> Michoacán" 
-		});
-		
-		google.maps.event.addListener(marker, "click", function(){
-			infowindow.open(map,marker);
-		});
-		
-		infowindow.open(map,marker);
+		var lugares;
+		$.ajax({
+			type  		: 	'GET',
+			url 		: 	'api/locations',
+			dataType 	: 	'json',
+			success: function(data){
+				var i=0;
+				var marker = new Array();
+				$.each(data, function(){
 
-		google.maps.event.addListener(map, "rightclick", function(event) {
-		    var lat = event.latLng.lat();
-		    var lng = event.latLng.lng();
-		    // populate yor box/field with lat, lng
-		    //alert("Lat=" + lat + "; Lng=" + lng);
-		    $("#inputLat").val(lat);
-		    $("#inputLen").val(lng);
+					//En cada punto de interés creará una infowindow distinta
+					infowindow = new google.maps.InfoWindow({
+						content 	: 	"<b>Plaza grande</b><br/>Patzcuaro<br/> Michoacán " + i
+					});
+
+
+					marker[i] = new google.maps.Marker({
+						map 		:  	map,
+						position 	: 	new google.maps.LatLng(parseFloat(this['coord_lat']), parseFloat(this['coord_lon'])),
+						animation 	: 	google.maps.Animation.DROP,
+						infowindow 	: 	infowindow
+					});	
+					
+					//En cada punto de interés se crea el evento de abrir la información
+					google.maps.event.addListener(marker[i], "click", function(){
+						this.infowindow.open(map,this);
+						map.setCenter(this.getPosition());
+					});
+					i++;
+				});
+				
+			},
+			error: function(xhr, resp, text) {
+            	console.log(xhr, resp, text);
+        	}
 		});
 	}
 
