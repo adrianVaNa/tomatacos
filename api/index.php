@@ -31,4 +31,17 @@ $app->post('/new_location', function ($request, $response, $args) {
     $bd=NULL;
 });
 
+$app->get('/locations', function () {
+	$bd=conectaBD();
+	$sql = "SELECT * FROM restaurantes";
+	try{
+    	$stmt = $bd->query($sql);
+    	$res = $stmt->fetchAll(PDO::FETCH_OBJ);
+    	$bd = null;
+    	echo json_encode($res);
+    }catch(PDOException $e){
+    	echo '{"error":"true" , "texto":'. $e->getMessage() .'}';
+    }
+});
+
 $app->run();
