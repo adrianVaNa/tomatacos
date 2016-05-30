@@ -57,7 +57,39 @@
 			mapTypeId 	: 	google.maps.MapTypeId.ROADMAP
 		};
 
-		map  = new google.maps.Map(document.getElementById("gmap_canvas"), myOptions);
+		map  = new google.maps.Map(document.getElementById("gmap_canvas"), myOptions); //pone el mapa en el div indicado
+
+		var infoWindow = new google.maps.InfoWindow({map: map}); //Crea una infowindow para el punto "Estoy aquí"
+
+		//Obtiene la geolocalización del navegador
+		if (navigator.geolocation) {
+		    navigator.geolocation.getCurrentPosition(function(position) {
+		      var pos = {
+		        lat: position.coords.latitude,
+		        lng: position.coords.longitude
+		      };
+		      marker_here = new google.maps.Marker({
+					map 		:  	map,
+					position 	: 	new google.maps.LatLng(pos)
+			  });
+
+		      infoWindow.setPosition(pos);
+		      infoWindow.setContent('Aquí estoy.');
+		      map.setCenter(pos);
+		    }, function() {
+		      handleLocationError(true, infoWindow, map.getCenter());
+		    });
+		} else {
+		    // Browser doesn't support Geolocation
+		    handleLocationError(false, infoWindow, map.getCenter());
+		}
+
+		function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+		  infoWindow.setPosition(pos);
+		  infoWindow.setContent(browserHasGeolocation ?
+		                        'Error: The Geolocation service failed.' :
+		                        'Error: Your browser doesn\'t support geolocation.');
+		}
 
 		var lugares;
 		$.ajax({
