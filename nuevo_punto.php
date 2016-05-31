@@ -50,7 +50,7 @@
 	</div>
 
 	<script type="text/javascript"> 
-	google.maps.event.addDomListener(window, 'load', init_map);
+	google.maps.event.addDomListener(window, 'load', nuevoPunto);
 	</script>
 </section>
 

@@ -23,6 +23,9 @@ $(document).ready(function(){
 });
 
 function creaMapa(){
+	//Crea mapa y centra de acuerdo a la posición global
+	//En caso de fallar posición global se sitúa en Pátzcuaro mich
+
 	var myOptions = {
 			zoom 		: 	16,
 			center		: 	new google.maps.LatLng(19.513056818661333,-101.6093156524658), 
@@ -68,6 +71,8 @@ function creaMapa(){
 
 function puntos(){
 		
+		//
+
 		map = creaMapa();
 
 		var lugares;
@@ -109,24 +114,27 @@ function puntos(){
 		});
 }
 
-function init_map(){
+function nuevoPunto(){
+
+		//Permite seleccionar un nuevo punto del mapa y enviar los valores a un form
+
 		map = creaMapa();
 
-		marker = new google.maps.Marker({
-			map 		:  	map,
-			position 	: 	new google.maps.LatLng(19.513056818661333, -101.6093156524658)
-		});	
-		infowindow = new google.maps.InfoWindow({
-			content 	: 	"<b>Plaza grande</b><br/>Patzcuaro<br/> Michoacán" 
-		});
+		// marker = new google.maps.Marker({
+		// 	map 		:  	map,
+		// 	position 	: 	new google.maps.LatLng(19.513056818661333, -101.6093156524658)
+		// });	
+		// infowindow = new google.maps.InfoWindow({
+		// 	content 	: 	"<b>Plaza grande</b><br/>Patzcuaro<br/> Michoacán" 
+		// });
 		
-		google.maps.event.addListener(marker, "click", function(){
-			infowindow.open(map,marker);
-		});
+		// google.maps.event.addListener(marker, "click", function(){
+		// 	infowindow.open(map,marker);
+		// });
 		
-		infowindow.open(map,marker);
+		//infowindow.open(map,marker);
 
-		google.maps.event.addListener(map, "rightclick", function(event) {
+		google.maps.event.addListener(map, "click", function(event) {
 		    var lat = event.latLng.lat();
 		    var lng = event.latLng.lng();
 		    // populate yor box/field with lat, lng
