@@ -50,39 +50,6 @@
 	</div>
 
 	<script type="text/javascript"> 
-	function init_map(){
-		var myOptions = {
-			zoom 		: 	16,
-			center		: 	new google.maps.LatLng(19.513056818661333,-101.6093156524658), 
-			mapTypeId 	: 	google.maps.MapTypeId.ROADMAP
-		};
-
-		map  = new google.maps.Map(document.getElementById("gmap_canvas"), myOptions);
-
-		marker = new google.maps.Marker({
-			map 		:  	map,
-			position 	: 	new google.maps.LatLng(19.513056818661333, -101.6093156524658)
-		});	
-		infowindow = new google.maps.InfoWindow({
-			content 	: 	"<b>Plaza grande</b><br/>Patzcuaro<br/> Michoacán" 
-		});
-		
-		google.maps.event.addListener(marker, "click", function(){
-			infowindow.open(map,marker);
-		});
-		
-		infowindow.open(map,marker);
-
-		google.maps.event.addListener(map, "rightclick", function(event) {
-		    var lat = event.latLng.lat();
-		    var lng = event.latLng.lng();
-		    // populate yor box/field with lat, lng
-		    //alert("Lat=" + lat + "; Lng=" + lng);
-		    $("#inputLat").val(lat);
-		    $("#inputLen").val(lng);
-		});
-	}
-
 	google.maps.event.addDomListener(window, 'load', init_map);
 	</script>
 </section>
