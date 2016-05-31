@@ -20,8 +20,8 @@ $app->post('/new_location', function ($request, $response, $args) {
     $data = json_decode($json, true);
     $bd=conectaBD();
     $sql = "INSERT INTO restaurantes 
-		    (coord_lat,coord_lon)
-		    VALUES ('".$data['lat']."', '".$data['len']."');";
+		    (nombre, ciudad, estado, domicilio, telefono, texto, coord_lat,coord_lon)
+		    VALUES ('".$data['nombre']."','".$data['ciudad']."','".$data['estado']."','".$data['domicilio']."','".$data['telefono']."','".$data['texto']."','".$data['lat']."', '".$data['len']."');";
     try{
     	$stmt = $bd->query($sql);
     }catch(PDOException $e){

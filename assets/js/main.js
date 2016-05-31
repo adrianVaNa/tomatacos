@@ -3,6 +3,11 @@ $(document).ready(function(){
     $("#botonGuardar").click(function(){
     	var obj = {};
 
+    	obj.nombre = $("#inputNombre").val();
+    	obj.ciudad = $("#inputCiudad").val();
+    	obj.estado = $("#inputEstado").val();
+    	obj.telefono = $("#inputTelefono").val();
+    	obj.texto = $("#inputTexto").val();
     	obj.lat = $("#inputLat").val();
 		obj.len = $("#inputLen").val();
 
@@ -137,6 +142,12 @@ function nuevoPunto(){
 		google.maps.event.addListener(map, "click", function(event) {
 		    var lat = event.latLng.lat();
 		    var lng = event.latLng.lng();
+
+		    marca = new google.maps.Marker({
+				map 		:  	map,
+				position 	: 	event.latLng,
+				title 		: 	"Tacos aquí!"
+			});
 		    // populate yor box/field with lat, lng
 		    //alert("Lat=" + lat + "; Lng=" + lng);
 		    $("#inputLat").val(lat);

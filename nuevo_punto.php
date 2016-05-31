@@ -57,8 +57,13 @@
 <section class="form" id="form">
 	<div class="container">
 		<form id="nuevoLugar" method="post">
-			<p>Latitud: <input type="text" name="latitud" id="inputLat" value=""></p>
-			<p>Longitud: <input type="text" name="longitud" id="inputLen" value=""></p>
+			<p>Latitud: <input type="text" name="latitud" id="inputLat" value="" disabled></p>
+			<p>Longitud: <input type="text" name="longitud" id="inputLen" value="" disabled></p>
+			<p>Nombre: <input type="text" name="nombre" id="inputNombre" value="" placeholder="Ej. El paisa"></p>
+			<p>Ciudad: <input type="text" name="ciudad" id="inputCiudad" value="" placeholder="Ej. Ciudad de México"></p>
+			<p>Estado: <input type="text" name="estado" id="inputEstado" value="" placeholder="Ej. Michoacán"></p>
+			<p>Teléfono <input type="tel" name="telefono" id="inputTelefono" value="" placeholder="Ej. 5512234567"></p>
+			<p><textarea name="descripción" id="inputTexto" placeholder="Escribe una breve reseña del lugar"></textarea></p>
 
 			<input type="button" name="enviar" value="Guardar" id="botonGuardar">
 		</form>
