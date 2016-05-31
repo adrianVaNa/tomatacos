@@ -92,7 +92,7 @@ function puntos(){
 
 					//En cada punto de interés creará una infowindow distinta
 					infowindow = new google.maps.InfoWindow({
-						content 	: 	"<b>Plaza grande</b><br/>Patzcuaro<br/> Michoacán " + i
+						content 	: 	"<h2>"+this['nombre']+"</h2><h3>"+this['texto']+"</h3><br/>Domicilio: "+this['domicilio']+"<br/>"+this['ciudad']+"<br/>"+this['estado']+"<br/>Teléfono: "+this['telefono']+"<br/>"
 					});
 
 
