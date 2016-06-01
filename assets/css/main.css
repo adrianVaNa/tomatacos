@@ -58,10 +58,15 @@ span{  font-weight:500; }
 	.right-sweep:hover:before, .right-sweep:focus:before, 
 	.right-sweep:active:before { -webkit-transform: scaleX(1); transform: scaleX(1); }
 	.right-sweep:hover, .right-sweep:focus, .right-sweep:active {} 
+
+	#map{overflow:hidden;height:600px;width:100%;}
+	#gmap_canvas {height:600px;width:100%;}
+	#gmap_canvas img{max-width:none!important;background:none!important}
 	
 	/*section footer*/
 	footer{ background:#000;  }
 	footer .container a:hover{ color:#FD5451; }
+
 	
 	
 

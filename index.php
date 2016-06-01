@@ -44,9 +44,6 @@
 <section class="map" id="map">
 	<div style="overflow:hidden;height:500px;width:100%;">
 		<div id="gmap_canvas" style="height:500px;width:100%;">
-			<style>
-				#gmap_canvas img{max-width:none!important;background:none!important}
-			</style>
 		</div>
 	</div>
 
@@ -78,7 +75,7 @@
 		</ul>
 
 		<p>
-			<small>2016 footer &copy; </small><br>
+			<small>2016 Adrián Vázquez Navarrete &copy; </small><br>
 			<a href="#" title="">Legal</a> | <a href="#" title="">Terms of services</a>
 		</p>
 	</div>

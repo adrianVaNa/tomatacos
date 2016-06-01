@@ -42,14 +42,7 @@
 </header>
 
 <section class="map" id="map">
-	<div style="overflow:hidden;height:500px;width:100%;">
-		<div id="gmap_canvas" style="height:500px;width:100%;">
-			<style>
-				#gmap_canvas img{max-width:none!important;background:none!important}
-			</style>
-		</div>
-	</div>
-
+	<div id="gmap_canvas"></div>
 	<script type="text/javascript"> 
 	google.maps.event.addDomListener(window, 'load', nuevoPunto);
 	</script>
