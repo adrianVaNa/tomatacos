@@ -31,6 +31,7 @@
 	<![endif]-->
 	<script type="text/javascript" src="http://maps.google.com/maps/api/js?key=AIzaSyBlOxsFrd1V_q-Bc8kPCiswH9myVuaH0N4"></script>
 	<script type="text/javascript" src="assets/js/main.js"></script>
+	<script type="text/javascript" src="assets/js/mapas.js"></script>
 </head>
 <body>
 <header id="header" class="header">
@@ -62,6 +63,7 @@
 			<p>Nombre: <input type="text" name="nombre" id="inputNombre" value="" placeholder="Ej. El paisa"></p>
 			<p>Ciudad: <input type="text" name="ciudad" id="inputCiudad" value="" placeholder="Ej. Ciudad de México"></p>
 			<p>Estado: <input type="text" name="estado" id="inputEstado" value="" placeholder="Ej. Michoacán"></p>
+			<p>Domicilio: <input type="text" name="estado" id="inputDomicilio" value="" placeholder="Ej. Calle No.1 Colonia"></p>
 			<p>Teléfono <input type="tel" name="telefono" id="inputTelefono" value="" placeholder="Ej. 5512234567"></p>
 			<p><textarea name="descripción" id="inputTexto" placeholder="Escribe una breve reseña del lugar"></textarea></p>
 
