@@ -31,6 +31,7 @@
 	<![endif]-->
 	<script type="text/javascript" src="http://maps.google.com/maps/api/js?key=AIzaSyBlOxsFrd1V_q-Bc8kPCiswH9myVuaH0N4"></script>
 	<script type="text/javascript" src="assets/js/main.js"></script>
+	<script type="text/javascript" src="assets/js/mapas.js"></script>
 </head>
 <body>
 <header id="header" class="header">
