@@ -61,7 +61,7 @@ function puntos(){
 		var lugares;
 		$.ajax({
 			type  		: 	'GET',
-			url 		: 	'api/locations',
+			url 		: 	'api/locations_file',
 			dataType 	: 	'json',
 			success: function(data){
 				var i=0;
