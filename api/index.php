@@ -1,53 +1,29 @@
 <?php
 
-require 'vendor/autoload.php';
-include 'db.php';
+require 'libs/vendor/autoload.php';
+include 'includes/operaciones.php';
 
+$ops = new operaciones();
 $app = new Slim\App();
 
-$app->get('/hello/{name}', function ($request, $response, $args) {
-    $response->write("Hello, " . $args['name']);
-    return $response;
-});
-
-$app->get('/', function () {
-    echo 'EEEEE uto!!';
-});
-
-$app->post('/new_location', function ($request, $response, $args) {
-    $json = $request->getBody();
-    //echo $json;
-    $data = json_decode($json, true);
-    $bd=conectaBD();
-    $sql = "INSERT INTO restaurantes 
-		    (nombre, ciudad, estado, domicilio, telefono, texto, coord_lat,coord_lon)
-		    VALUES ('".$data['nombre']."','".$data['ciudad']."','".$data['estado']."','".$data['domicilio']."','".$data['telefono']."','".$data['texto']."','".$data['lat']."', '".$data['len']."');";
-    try{
-    	$stmt = $bd->query($sql);
-    }catch(PDOException $e){
-    	echo '{"error":"true" , "texto":'. $e->getMessage() .'}';
-    }
-
-    $bd=NULL;
-});
-
-$app->get('/locations', function () {
-	$bd=conectaBD();
-	$sql = "SELECT * FROM restaurantes";
-	try{
-    	$stmt = $bd->query($sql);
-    	$res = $stmt->fetchAll(PDO::FETCH_OBJ);
-    	$bd = null;
-    	echo json_encode($res);
-    }catch(PDOException $e){
-    	echo '{"error":"true" , "texto":'. $e->getMessage() .'}';
-    }
-});
-
-$app->get('/locations_file', function () {
+//Dirección que regresa valores de prueba contenidos en el archivo sample.txt
+$app->get('/locations_file', function ($request, $response, $args) {
 	$myfile = fopen("sample.txt", "r") or die("Unable to open file!");
-	echo fread($myfile,filesize("sample.txt"));
+	$arr = fread($myfile,filesize("sample.txt"));
 	fclose($myfile);
+
+    return $response->withJson($arr,200);
+});
+
+$app->get('/ciudades', function ($request, $response, $args) use($ops) {
+    $ciudades = $ops->verCiudades();
+    return $response->withJson($ciudades['respuesta'], $ciudades['status']);
+});
+
+$app->get('/puntos/{ciudad}', function ($request, $response, $args) use($ops){
+    $puntos = $ops->verPuntosCiudad($args['ciudad']);
+    return $response->withJson($puntos['respuesta'], $puntos['status']);
+    // return $response->withJson($args,200);
 });
 
 $app->run();
